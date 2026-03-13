@@ -37,7 +37,7 @@ jobs:
       - name: Build and push Docker image
         if: steps.changed-files-build.outputs.any_changed == 'true'
         run: |
-               docker buildx buil --push \
+               docker buildx build --push \
                 --tag ${{ vars.DOCKER_USERNAME }}/${{vars.DOCKERHUB_REPOSITORY}}:latest \
                 --tag ${{ vars.DOCKER_USERNAME }}/${{vars.DOCKERHUB_REPOSITORY}}:${{ github.sha }} \
                 .
